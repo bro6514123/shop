@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend/
+    ports:
+      - "8000:8000"
+    container_name: django
+    volumes:
+      - ./backend/src:/backend/src  # дозволяє бачити зміни в коді без перезавантаження контейнера
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
